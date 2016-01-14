@@ -1,7 +1,7 @@
 # "Simple" theme based on my old zsh settings + colors.
 
 function prompt_char {
-	if [ $UID -eq 0 ]; then echo "%{$fg[red]%}##%{$reset_color%}"; else echo '>'; fi
+	if [ $UID -eq 0 ]; then echo '##'; else echo '>'; fi
 }
 
 #PROMPT='%(?,%{%F{yellow}%},%{%F{red}%})> %{$reset_color%}'
