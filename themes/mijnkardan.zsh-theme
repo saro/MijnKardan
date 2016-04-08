@@ -6,7 +6,7 @@ function prompt_char {
 
 #PROMPT='%(?,%{%F{yellow}%},%{%F{red}%})> %{$reset_color%}'
 #CURRPATH='%{%F{yellow}%}[%-1~] %2~%{$reset_color%}$(git_prompt_info)'
-PROMPT='%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{%F{yellow}%}%~%{$reset_color%} $(git_prompt_info)
+PROMPT='${RESULT_VIM_PROMPT}%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{%F{yellow}%}%~%{$reset_color%} $(git_prompt_info)
 %{$reset_color%}%(?,%{%F{green}%},%{%F{red}%})$(prompt_char) %{$reset_color%}%{%F{15}%}'
 #PROMPT='%{$reset_color%}%(?,%{%F{green}%},%{%F{red}%})> %{$reset_color%}%{%F{white}%}'
 #PROMPT='> '
