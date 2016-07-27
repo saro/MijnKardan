@@ -1,17 +1,21 @@
 # "Simple" theme based on my old zsh settings + colors.
 
+# Change Shell Char for Root and not-Root user
 function prompt_char {
-	if [ $UID -eq 0 ]; then echo '##'; else echo '>'; fi
+	if [ $UID -eq 0 ]; then echo '#'; else echo '>'; fi
 }
 
-#PROMPT='%(?,%{%F{yellow}%},%{%F{red}%})> %{$reset_color%}'
-#CURRPATH='%{%F{yellow}%}[%-1~] %2~%{$reset_color%}$(git_prompt_info)'
-PROMPT='${RESULT_VIM_PROMPT}%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{%F{yellow}%}%~%{$reset_color%} $(git_prompt_info)
+# Change hostname color if in SSH session
+function color_hostname {
+	if [ -z "$SSH_CONNECTION" ]; then
+		echo 'yellow';
+	else
+		echo 'green';
+	fi
+}
+
+PROMPT='${RESULT_VIM_PROMPT}%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[$(color_hostname)]%}%m%{$reset_color%}: %{%F{yellow}%}%~%{$reset_color%} $(git_prompt_info)
 %{$reset_color%}%(?,%{%F{green}%},%{%F{red}%})$(prompt_char) %{$reset_color%}%{%F{15}%}'
-#PROMPT='%{$reset_color%}%(?,%{%F{green}%},%{%F{red}%})> %{$reset_color%}%{%F{white}%}'
-#PROMPT='> '
-#RPROMPT='%{%F{yellow}%}[%-1~] %2~%{$reset_color%}$(git_prompt_info)'
-#RPROMPT='%{%F{yellow}%}[%-1~] %2~%{$reset_color%}$(git_prompt_info)'
 
 RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
 
